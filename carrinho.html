@@ -1,54 +1,30 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Carrinho</title>
-  <style>
-    body { font-family: Arial; padding: 20px; }
-    .item-carrinho { display: flex; align-items: center; margin-bottom: 15px; }
-    .item-carrinho img { margin-right: 10px; }
-  </style>
-</head>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="js/script.js">
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+ <header>
+    <div class="header-container">
+      <div class="logo">OKLIN<span>store</span></div>
+ </header>
 <body>
-  <h1>Seu Carrinho</h1>
-  <div id="carrinho-container"></div>
-  <p id="total">Total: R$0,00</p>
-
-  <script>
-    function carregarCarrinho() {
-      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-      const container = document.getElementById('carrinho-container');
-      const totalContainer = document.getElementById('total');
-
-      if (carrinho.length === 0) {
-        container.innerHTML = '<p>Seu carrinho está vazio 😢</p>';
-        totalContainer.style.display = 'none';
-        return;
-      }
-
-      let total = 0;
-      container.innerHTML = '';
-
-      carrinho.forEach(produto => {
-        total += produto.price;
-        const item = document.createElement('div');
-        item.classList.add('item-carrinho');
-        item.innerHTML = `
-          <img src="${produto.thumbnail}" alt="${produto.shoeName}" width="100">
-          <div>
-            <h3>${produto.shoeName}</h3>
-            <p>${produto.brand}</p>
-            <p>Preço: R$${produto.price.toFixed(2)}</p>
-          </div>
-        `;
-        container.appendChild(item);
-      });
-
-      totalContainer.textContent = `Total: R$${total.toFixed(2)}`;
-      totalContainer.style.display = 'block';
-    }
-
-    document.addEventListener('DOMContentLoaded', carregarCarrinho);
-  </script>
+  <div class="container">
+    <div class="box">
+      <h1>CARRINHO</h1>
+      <div class="produtos">
+    <div class="produto">
+      <h2>Produto 1</h2>
+      <p>R$ 50,00</p>
+      <button onclick="adicionarAoCarrinho('Produto 1', 50)">Adicionar</button>
+    </div>
+    <div class="produto">
+      <h2>Produto 2</h2>
+      <p>R$ 75,00</p>
+      <button onclick="adicionarAoCarrinho('Produto 2', 75)">Adicionar</button>
+    </div>
 </body>
 </html>
