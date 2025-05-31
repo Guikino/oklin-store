@@ -127,18 +127,19 @@
       return card;
     }
 
-    function carregarTenisDestaque() {
-      fetch('http://localhost:3000/search?q=tenis&limit=5')
-        .then(res => res.json())
-        .then(data => {
-          track.innerHTML = '';
-          data.slice(0, 8).forEach(tenis => {
-            const card = criarCard(tenis);
-            track.appendChild(card);
-          });
-        })
-        .catch(err => console.error('Erro ao carregar tênis:', err));
-    }
+   function carregarTenisDestaque() {
+  fetch('http://localhost:3000/popular') // ou /search?q=jordan
+    .then(res => res.json())
+    .then(data => {
+      track.innerHTML = '';
+      data.slice(0,20).forEach(tenis => {
+        const card = criarCard(tenis);
+        track.appendChild(card);
+      });
+    })
+    .catch(err => console.error('Erro ao carregar tênis:', err));
+}
+
 
     carregarTenisDestaque();
 
