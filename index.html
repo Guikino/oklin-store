@@ -19,14 +19,12 @@
       <button class="menu-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
       <nav>
         <ul class="nav-links">
-          <li style="list-style-type: none;"><a  href="#home">Home</a></li>
-          <li style="list-style-type: none;"><a  href="#lancamentos">Lançamentos</a></li>
-          <li style="list-style-type: none;"><a  href="#outlet">Outlet</a></li>
+          <li style="list-style-type: none;"><a  href="index.html">Home</a></li>
+          <li style="list-style-type: none;"><a  href="outlet.html">Outlet</a></li>
         </ul>
       </nav>
       
       <ul class="icons">
-        <li><i class="fas fa-search"></i></li>
         <li><a href="/criar-conta.html"><i class="fas fa-user"></i></a></li>
         <li><a href="/carrinho.html"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a></li>
       </ul>
@@ -34,58 +32,58 @@
   </header>
 
   <!-- Hero -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Estilo nos seus <span>passos</span></h1>
-      <p>Descubra nossa nova coleção de tênis com design exclusivo e conforto incomparável.</p>
-      <div class="hero-buttons">
-        <a href="#" class="btn primary">Comprar Agora</a>
-        <a href="#" class="btn secondary">Lançamentos</a>
+  <main class="page-content">
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Estilo nos seus <span>passos</span></h1>
+        <p>Descubra nossa nova coleção de tênis com design exclusivo e conforto incomparável.</p>
+        <div class="hero-buttons">
+          <a href="#" class="btn primary">Comprar Agora</a>
+          <a href="#" class="btn secondary">Lançamentos</a>
+        </div>
       </div>
-    </div>
-    <div class="hero-image">
-      <img src="img/jordan.png" alt="Tênis" />
-    </div>
-  </section>
-
-  <!-- Categories -->
-  <section class="categories">
-    <h2>Categorias</h2>
-    <div class="category-grid">
-      <div class="category-card">
-        <img src="img/icons/nike.png" alt="Nike">
-        NIKE
+      <div class="hero-image">
+        <img src="img/jordan.png" alt="Tênis" />
       </div>
-      <div class="category-card">
-        <img src="img/icons/adidas.png" alt="Adidas">
-        ADIDAS
+    </section>
+    <!-- Categories -->
+    <section class="categories">
+      <h2>Categorias</h2>
+      <div class="category-grid">
+        <div class="category-card">
+          <img src="img/icons/nike.png" alt="Nike">
+          NIKE
+        </div>
+        <div class="category-card">
+          <img src="img/icons/adidas.png" alt="Adidas">
+          ADIDAS
+        </div>
+        <div class="category-card">
+          <img src="img/icons/puma.png" alt="Puma">
+          PUMA
+        </div>
+        <div class="category-card">
+          <img src="img/icons/asics.png" alt="Asics">
+          ASICS
+        </div>
+        <div class="category-card">
+          <img src="img/icons/newbalance.png" alt="New Balance">
+          NEW BALANCE
+        </div>
       </div>
-      <div class="category-card">
-        <img src="img/icons/puma.png" alt="Puma">
-        PUMA
+    </section>
+    <!-- Highlights Carousel -->
+    <section class="highlights-carousel">
+      <h2>Destaques da Semana</h2>
+      <div class="carousel-container">
+        <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+        <div class="carousel-track">
+          <!-- Cards will be inserted dynamically -->
+        </div>
+        <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
       </div>
-      <div class="category-card">
-        <img src="img/icons/asics.png" alt="Asics">
-        ASICS
-      </div>
-      <div class="category-card">
-        <img src="img/icons/newbalance.png" alt="New Balance">
-        NEW BALANCE
-      </div>
-    </div>
-  </section>
-
-  <!-- Highlights Carousel -->
-  <section class="highlights-carousel">
-    <h2>Destaques da Semana</h2>
-    <div class="carousel-container">
-      <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
-      <div class="carousel-track">
-        <!-- Cards will be inserted dynamically -->
-      </div>
-      <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer>
@@ -103,67 +101,91 @@
   </footer>
 
   <script>
-    // Menu Toggle
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
+     // Menu Toggle (Seu código original, mantido)
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
 
-    // Carousel Logic
-    const track = document.querySelector('.carousel-track');
-    const nextBtn = document.querySelector('.carousel-btn.next');
-    const prevBtn = document.querySelector('.carousel-btn.prev');
+  // Carousel Logic (Seu código original com a correção aplicada)
+  const track = document.querySelector('.carousel-track');
+  const nextBtn = document.querySelector('.carousel-btn.next');
+  const prevBtn = document.querySelector('.carousel-btn.prev');
+  let autoScroll; // Mantido para o controle do intervalo
 
-    function criarCard(tenis) {
-      const card = document.createElement('div');
-      card.className = 'highlight-card';
-      const marca = tenis.brand || 'Marca Desconhecida';
-      const modelo = tenis.make || 'Modelo Desconhecido';
-    
-      card.innerHTML = `
-        <img src="${tenis.thumbnail}" alt="${tenis.shoeName}">
-        <h3>${marca}</h3>
-        <p>${modelo}</p>
-      `;
-      return card;
-    }
+  // Função para criar card (Sua função original, mantida)
+  function criarCard(tenis) {
+    const card = document.createElement('div');
+    card.className = 'highlight-card';
+    const marca = tenis.brand || 'Marca Desconhecida';
+    const modelo = tenis.make || 'Modelo Desconhecido';
+  
+    card.innerHTML = `
+      <img src="${tenis.thumbnail}" alt="${tenis.shoeName}">
+      <h3>${marca}</h3>
+      <p>${modelo}</p>
+    `;
+    return card;
+  }
 
-    function carregarTenisDestaque() {
-      fetch('http://localhost:3000/search?q=tenis&limit=5')
-        .then(res => res.json())
-        .then(data => {
-          track.innerHTML = '';
-          data.slice(0, 8).forEach(tenis => {
-            const card = criarCard(tenis);
-            track.appendChild(card);
-          });
-        })
-        .catch(err => console.error('Erro ao carregar tênis:', err));
-    }
+  // >>> INÍCIO DA CORREÇÃO <<<
+  // Criei esta função para conter a nova lógica de avançar
+  function moveNext() {
+    // Calcula se o carrossel está no final ou muito perto dele
+    const isAtEnd = track.scrollLeft >= (track.scrollWidth - track.clientWidth - 1);
 
-    carregarTenisDestaque();
-
-    let autoScroll = setInterval(() => {
+    if (isAtEnd) {
+      // Se estiver no fim, volta para o início com animação suave
+      track.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      // Caso contrário, continua rolando normalmente
       track.scrollBy({ left: 320, behavior: 'smooth' });
-    }, 3000);
-
-    nextBtn.addEventListener('click', () => {
-      track.scrollBy({ left: 320, behavior: 'smooth' });
-      resetAutoScroll();
-    });
-
-    prevBtn.addEventListener('click', () => {
-      track.scrollBy({ left: -320, behavior: 'smooth' });
-      resetAutoScroll();
-    });
-
-    function resetAutoScroll() {
-      clearInterval(autoScroll);
-      autoScroll = setInterval(() => {
-        track.scrollBy({ left: 320, behavior: 'smooth' });
-      }, 3000);
     }
+  }
+  
+  function resetAutoScroll() {
+    clearInterval(autoScroll);
+    autoScroll = setInterval(moveNext, 3000); // Agora chama a nova função
+  }
+  // >>> FIM DA CORREÇÃO <<<
+  
+  function carregarTenisDestaque() {
+    fetch('http://localhost:3000/search?q=tenis&limit=15')
+      .then(res => res.json())
+      .then(data => {
+        console.log('API retornou itens:', data.length); // Verifica quantos itens vieram
+        track.innerHTML = '';
+        data.slice(0, 15).filter(tenis => tenis.brand != "Louis Vuitton").forEach(tenis => {
+          const card = criarCard(tenis);
+          track.appendChild(card);
+        });
+        
+        // Inicia o carrossel somente depois que os cards foram carregados
+        // Adiciona um pequeno delay para o navegador calcular as larguras corretas
+        setTimeout(() => {
+          console.log('Track scrollWidth:', track.scrollWidth);
+          console.log('Track clientWidth:', track.clientWidth);
+        }, 100);
+        resetAutoScroll(); 
+      })
+      .catch(err => console.error('Erro ao carregar tênis:', err));
+  }
+
+  // Carregamento inicial (Seu código original, mantido)
+  carregarTenisDestaque();
+
+  // Eventos dos botões (Atualizados para usar a nova lógica)
+  nextBtn.addEventListener('click', () => {
+    moveNext();
+    resetAutoScroll();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    // A lógica original de voltar já funciona bem.
+    track.scrollBy({ left: -320, behavior: 'smooth' });
+    resetAutoScroll();
+  });
   </script>
 </body>
 </html>

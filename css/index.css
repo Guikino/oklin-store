@@ -30,9 +30,9 @@
     /* Header */
     header {
       background-color: var(--surface);
-      padding: 1.5rem 2rem;
+      padding: 1.5rem;
       position: fixed;
-      width: 100%;
+      width: 100vw;
       top: 0;
       z-index: 1000;
       border-bottom: 1px solid var(--border);
@@ -62,13 +62,17 @@
     .nav-links {
       display: flex;
       gap: 2rem;
+      margin-right: 70px;
+      align-items: center;
+      justify-content: center;
+      
     }
 
     .nav-links a {
       color: var(--text);
       text-decoration: none;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 21px;
       transition: var(--transition);
     }
 
@@ -77,9 +81,11 @@
     }
 
     .icons {
+      position: relative;
       display: flex;
       gap: 1.5rem;
       align-items: center;
+      list-style-type: none;
     }
 
     .icons i {
@@ -96,7 +102,7 @@
     .cart-count {
       position: absolute;
       top: -8px;
-      right: -8px;
+      right: -12px;
       background: var(--primary);
       color: var(--background);
       font-size: 0.75rem;
@@ -340,18 +346,22 @@
 
     /* Footer */
     footer {
+      width: 100vw;
       background: var(--surface);
       padding: 3rem 2rem;
       text-align: center;
     }
 
     footer p {
+      text-align: center;
       font-size: 0.9rem;
       color: var(--text-secondary);
       margin-bottom: 1rem;
     }
 
     .footer-links {
+     
+      align-items: center;
       display: flex;
       justify-content: center;
       gap: 2rem;
