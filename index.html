@@ -12,27 +12,50 @@
 </head>
 <body>
   <!-- Header -->
-  <header>
-    
-    <div class="header-container">
-      <div class="logo">OKLIN<span>store</span></div>
-      <button class="menu-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
-      <nav>
-        <ul class="nav-links">
-          <li style="list-style-type: none;"><a  href="index.html">Home</a></li>
-          <li style="list-style-type: none;"><a  href="outlet.html">Outlet</a></li>
-        </ul>
-      </nav>
-      
-      <ul class="icons">
-        <li><a href="/logar.html"><i class="fas fa-user"></i></a></li>
-        <li><a href="/carrinho.html"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a></li>
-      </ul>
+  <header class="header">
+    <div class="header__container">
+        <a href="index.html" class="header__logo">OKLIN<span>store</span></a>
+
+        <button class="header__menu-toggle" aria-label="Abrir menu de navegação">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <nav class="header__nav">
+            <ul class="header__nav-links">
+                <li><a href="index.html" class="header__link">Home</a></li>
+                <li><a href="outlet.html" class="header__link">Outlet</a></li>
+            </ul>
+
+            <ul class="header__icons">
+                <li>
+                    <form class="header__search-form" role="search">
+                        <input class="header__search-input" type="search" placeholder="Pesquisar..." aria-label="Campo de pesquisa">
+                        <button class="header__search-button" type="submit" aria-label="Buscar">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </li>
+                <li>
+                    <a href="/logar.html" class="header__icon-link" aria-label="Acessar perfil de usuário">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="/carrinho.html" class="header__icon-link header__cart-link" aria-label="Ver carrinho de compras">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="header__cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
-  </header>
+</header>
 
   <!-- Hero -->
   <main class="page-content">
+    <section class="banner">
+      <img  src="https://z6wc2obsgz.map.azionedge.net/8m69sjhk4s21/28EfdMMsIXxqVD1YrfFlL4/456ba74213a8ff20768035567d8a0a86/Old_Skool_-_Desk_-_thumb_-_banner_principal.jpg?fm=jpg&fl=progressive&w=1920&q=100" alt="banner">
+    </section>
     <section class="hero">
       <div class="hero-text">
         <h1>Estilo nos seus <span>passos</span></h1>
@@ -42,40 +65,54 @@
           <a href="#" class="btn secondary">Lançamentos</a>
         </div>
       </div>
-      <div class="hero-image">
-        <img src="img/jordan.png" alt="Tênis" />
-      </div>
-    </section>
-    <!-- Categories -->
-    <section class="categories">
-      <h2>Categorias</h2>
-      <div class="category-grid">
-        <div class="category-card">
-          <img src="img/icons/nike.png" alt="Nike">
-          NIKE
+      <div class="image-grid-container">
+    <div class="grid-item large">
+        <img  src="https://images.unsplash.com/photo-1542674684-fba3fa06625b?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDI1fHx8ZW58MHx8fHx8" alt="Modelo masculino vestindo um moletom com capuz branco com texto 'Where Dreams Meet Couture'">
+        <div class="overlay">
+            <h2>Transforme seus sonhos em realidade</h2>
+            <a href="#" class="shop-now-btn">Comprar agora</a>
         </div>
-        <div class="category-card">
-          <img src="img/icons/adidas.png" alt="Adidas">
-          ADIDAS
+    </div>
+    <div class="grid-item small">
+        <img src="https://static.nike.com/a/images/f_auto/dpr_3.0,cs_srgb/h_500,c_limit/697fa316-fe93-4598-aae8-77134c726c41/nike-sportswear-nsw.jpg" alt="Modelo feminina com uma blusa de manga comprida e o texto 'Enchanting Styles for Every Woman'">
+        <div class="overlay">
+            <h2>Melhores tenis femininos</h2>
+            <a href="#" class="shop-now-btn">Comprar agora</a>
         </div>
-        <div class="category-card">
-          <img src="img/icons/puma.png" alt="Puma">
-          PUMA
+    </div>
+    <div class="grid-item small">
+        <img src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa/global/399040/03/mod01/fnd/BRA/w/1000/h/1000/fmt/png" alt="Tênis branco com o texto 'Chic Footwear for City Living'">
+        <div class="overlay">
+            <h2>Sneakers streetwear</h2>
+            <a href="#" class="shop-now-btn">Comprar agora</a>
         </div>
-        <div class="category-card">
-          <img src="img/icons/asics.png" alt="Asics">
-          ASICS
-        </div>
-        <div class="category-card">
-          <img src="img/icons/newbalance.png" alt="New Balance">
-          NEW BALANCE
-        </div>
-      </div>
+    </div>
+</div>
 
-      <div>
-        
-      </div>
     </section>
+    
+    <section class="diferenciais">
+  <div class="container">
+    <h2>Por que comprar na <span>OKLIN?</span></h2>
+    <div class="diferenciais-grid">
+      <div class="diferencial-item">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Autenticidade Garantida</h3>
+        <p>Todos os nossos tênis passam por uma verificação rigorosa para garantir que você receba um produto 100% autêntico.</p>
+      </div>
+      <div class="diferencial-item">
+        <i class="fas fa-shipping-fast"></i>
+        <h3>Envio Rápido para Todo o Brasil</h3>
+        <p>Receba seus sneakers no conforto da sua casa com nosso sistema de entrega rápido e seguro.</p>
+      </div>
+      <div class="diferencial-item">
+        <i class="fas fa-star"></i>
+        <h3>Seleção Exclusiva</h3>
+        <p>Curadoria com os lançamentos mais quentes e os modelos mais desejados que você não encontra em qualquer lugar.</p>
+      </div>
+    </div>
+  </div>
+</section>
     <!-- Highlights Carousel -->
     <section class="highlights-carousel">
       <h2>Destaques da Semana</h2>
@@ -105,9 +142,20 @@
   </footer>
 
   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.querySelector('.header__menu-toggle');
+    const nav = document.querySelector('.header__nav');
+
+    menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+    });
+});
+  </script>
+
+  <script>
      // Menu Toggle (Seu código original, mantido)
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
+  const menuToggle = document.querySelector('.header__menu-toggle');
+  const navLinks = document.querySelector('.header__nav');
   menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
   });
@@ -191,5 +239,6 @@
     resetAutoScroll();
   });
   </script>
+  
 </body>
 </html>
