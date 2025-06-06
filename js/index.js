@@ -15,10 +15,13 @@ import axios from "https://cdn.jsdelivr.net/npm/axios@1.6.7/+esm";
   
   async function dataUser(){
     const avatar = document.querySelector("#avatar")  
+    const loginLink = document.querySelector("#login-link")
     if(userId){
         const dataUserAvatar = await axios.get(`http://localhost:8081/users/${userId}`)
+        
         console.log(dataUserAvatar.data.id)
         avatar.src = dataUserAvatar.data.avatar
+        loginLink.href = "../pages/conta.html"
     }
   }
   dataUser()
