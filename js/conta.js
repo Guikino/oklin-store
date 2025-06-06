@@ -11,7 +11,9 @@ async function login() {
       password: password.value,
     });
     console.log("Usuário autenticado:", verif.data);
-    alert("Login realizado com sucesso!");
+    localStorage.setItem("userId", verif.data.id)
+    window.location.href = "../pages/index.html";
+    
   } catch (error) {
     if (error.response) {
       alert("Erro: " + (error.response.data.message || "Email ou senha inválidos"));
@@ -23,11 +25,11 @@ async function login() {
 
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  if (email.value === "" || password.value === "" || !email.value.includes("@")) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (email.value === "" || password.value === "" || !emailRegex.test(email.value) ) {
     alert("Preencha todos os campos corretamente.");
   } else {
-    btoa(email.value)
-    btoa(password.value)
+    // As chamadas btoa() anteriores não tinham efeito prático e foram removidas.
     login();
   }
 });
