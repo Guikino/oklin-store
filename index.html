@@ -25,7 +25,7 @@
       </nav>
       
       <ul class="icons">
-        <li><a href="/criar-conta.html"><i class="fas fa-user"></i></a></li>
+        <li><a href="/logar.html"><i class="fas fa-user"></i></a></li>
         <li><a href="/carrinho.html"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a></li>
       </ul>
     </div>
@@ -70,6 +70,10 @@
           <img src="img/icons/newbalance.png" alt="New Balance">
           NEW BALANCE
         </div>
+      </div>
+
+      <div>
+        
       </div>
     </section>
     <!-- Highlights Carousel -->
@@ -151,7 +155,7 @@
   // >>> FIM DA CORREÇÃO <<<
   
   function carregarTenisDestaque() {
-    fetch('http://localhost:3000/search?q=tenis&limit=15')
+    fetch('http://localhost:3000/api/sneakers/search?q=tenis&limit=15')
       .then(res => res.json())
       .then(data => {
         console.log('API retornou itens:', data.length); // Verifica quantos itens vieram
