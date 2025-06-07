@@ -51,4 +51,3 @@ cd api # ou o caminho para a pasta da api
 
 ---
 
-*Sinta-se à vontade para personalizar as seções "Tecnologias Utilizadas", "Como Executar o Projeto" e "Endpoints da API" com as informações específicas do seu desenvolvimento.*
