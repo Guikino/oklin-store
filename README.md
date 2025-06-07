@@ -1,6 +1,8 @@
 # Loja de Roupas API & Website
 
 Bem-vindo ao projeto Loja de Roupas! Este repositório contém o código-fonte para o website e a API da loja.
+![Tela inicial do site](./img/tela-inicial.png)
+
 
 ## Sobre o Projeto
 
