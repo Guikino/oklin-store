@@ -71,8 +71,8 @@ import axios from "https://cdn.jsdelivr.net/npm/axios@1.6.7/+esm";
     autoScroll = setInterval(moveNext, 3000); // Agora chama a nova função
   }
   
-  function carregarTenisDestaque() {
-    fetch('http://localhost:3000/api/sneakers/search?q=tenis&limit=15')
+  async function carregarTenisDestaque() {
+    await fetch('http://localhost:3000/api/sneakers/popular')
       .then(res => res.json())
       .then(data => {
         console.log('API retornou itens:', data.length); // Verifica quantos itens vieram
