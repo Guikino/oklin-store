@@ -11,7 +11,7 @@ Este projeto visa fornecer uma plataforma online para a venda de roupas, com uma
 ## Tecnologias Utilizadas
 
 *   **Frontend:**  HTML/CSS/JS puro, axios js
-*   **Backend:**  Node com Express, TS 
+*   **Backend:**  Node com Express, TS, sneaks-api 
 *   
 *   **Outras Ferramentas:** Docker, Git
 
