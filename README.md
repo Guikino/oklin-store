@@ -1,6 +1,6 @@
-# Loja de Roupas API & Website
+# OklinStore website e-commerce & API
 
-Bem-vindo ao projeto Loja de Roupas! Este repositório contém o código-fonte para o website e a API da loja.
+Bem-vindo ao projeto OklinStore! Este repositório contém o código-fonte para o website e a API da loja.
 ![Tela inicial do site](./img/tela-inicial.png)
 
 
