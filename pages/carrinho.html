@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="../css/index.css" />
   <link rel="stylesheet" href="../css/carrinho.css" />
+
 </head>
 
 <body>
@@ -54,11 +55,22 @@
   </header>
 
   <!-- Conteúdo principal -->
-  <main>
-    <h1>Seu Carrinho</h1>
-    <button id="clearCart" class="clear-cart-btn">Esvaziar Carrinho</button>
-    <div id="carrinho-container"></div>
-    <p id="total" style="display: none;"></p>
+  <main style="margin-top: 120px;">
+    <h1>Seu Carrinho 🛒</h1>
+
+    <div class="carrinho-wrapper">
+      <!-- Coluna Esquerda: Produtos -->
+      <div class="carrinho-esquerda">
+        <button id="clearCart" class="clear-cart-btn">Esvaziar Carrinho 🗑️</button>
+        <div id="carrinho-container"></div>
+      </div>
+
+      <!-- Coluna Direita: Resumo -->
+      <div class="carrinho-direita">
+        <p id="total" style="display: none;"></p>
+        <button id="finalizarCompra" class="finalizar-compra-btn" style="display: none;">Finalizar Compra ✅</button>
+      </div>
+    </div>
   </main>
 
   <script>
@@ -66,10 +78,12 @@
       const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
       const container = document.getElementById('carrinho-container');
       const totalContainer = document.getElementById('total');
+      const finalizarBtn = document.getElementById('finalizarCompra');
 
       if (carrinho.length === 0) {
         container.innerHTML = '<p class="empty-msg">Seu carrinho está vazio 😢</p>';
         totalContainer.style.display = 'none';
+        finalizarBtn.style.display = 'none';
         return;
       }
 
@@ -94,12 +108,19 @@
 
       totalContainer.textContent = `Total: R$${total.toFixed(2)}`;
       totalContainer.style.display = 'block';
+      finalizarBtn.style.display = 'block';
     }
 
     document.addEventListener('DOMContentLoaded', () => {
       carregarCarrinho();
 
       document.getElementById('clearCart').addEventListener('click', () => {
+        localStorage.removeItem('carrinho');
+        carregarCarrinho();
+      });
+
+      document.getElementById('finalizarCompra').addEventListener('click', () => {
+        alert('Compra finalizada com sucesso! 🎉');
         localStorage.removeItem('carrinho');
         carregarCarrinho();
       });
