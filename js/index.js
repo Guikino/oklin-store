@@ -42,11 +42,17 @@ import axios from "https://cdn.jsdelivr.net/npm/axios@1.6.7/+esm";
     card.className = 'highlight-card';
     const marca = tenis.brand || 'Marca Desconhecida';
     const modelo = tenis.make || 'Modelo Desconhecido';
-  
+    const retailPrice = tenis.retailPrice || 'Preço Desconhecido';
+
     card.innerHTML = `
       <img src="${tenis.thumbnail}" alt="${tenis.shoeName}">
-      <h3>${marca}</h3>
-      <p>${modelo}</p>
+
+      
+      <div>
+        <p>${modelo} - <span>${tenis.colorway}</span></p>
+        <Strong>$${tenis.retailPrice},00</span></Strong>
+        <button><a href="">Comprar agora</a></button>
+      </div>
     `;
     return card;
   }

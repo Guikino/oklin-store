@@ -7,7 +7,7 @@
       --surface-light: #2c2c2c;
       --text: #e5e5e5;
       --text-secondary: #dcdcdc;
-      --border: #2c2c2c;
+      --border: #151515;
       --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       --transition: all 0.3s ease;
     }
@@ -430,7 +430,7 @@ body {
     /* Highlights Carousel */
     .highlights-carousel {
       padding: 5rem 2rem;
-      background: var(--background);
+      background: var(--surface);
       text-align: center;
     }
 
@@ -462,7 +462,7 @@ body {
 
    .highlight-card {
   flex: 0 0 300px;
-  background: var(--surface-light);
+  background-color: white;
   border-radius: 16px;
   padding: 1.5rem;
   box-shadow: var(--shadow);
@@ -473,8 +473,6 @@ body {
 }
 
 .highlight-card:hover {
-  background: var(--primary);
-  color: var(--background);
   /* efeito de levitação */
   transform: translateZ(20px) scale(1.05) rotateY(5deg);
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
@@ -488,16 +486,48 @@ body {
     }
 
     .highlight-card h3 {
+      color: black;
       font-size: 1.2rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
 
-    .highlight-card p {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
+    .highlight-card div{
+      padding-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      height: 90px;
     }
-
+    .highlight-card div p {
+      font-size: 0.9rem;
+      color: black;
+      
+    }
+    .highlight-card div strong{
+      color: black;
+      font-size: 20px;
+    }
+    .highlight-card div p span{
+      color: gray;
+    }
+    .highlight-card div button{
+      width: 80%;
+      border: none;
+      
+      border-radius: 50px;
+      background-color: var(--primary);
+      font-size: 15px;
+      padding: 10px 10px;
+    }
+    .highlight-card div button a{
+      font-weight: 600;
+      color: black;
+      text-decoration: none;
+    }
+    
     .carousel-btn {
       position: absolute;
       top: 50%;
@@ -526,6 +556,8 @@ body {
 
     /* Footer */
     footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 2rem;
       width: 100vw;
       background: var(--surface);
       padding: 3rem 2rem;
