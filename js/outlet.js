@@ -88,7 +88,7 @@ import axios from "https://cdn.jsdelivr.net/npm/axios@1.6.7/+esm";
         item.querySelector('.card').addEventListener('click', e => {
           e.preventDefault();
           adicionarAoCarrinho({
-            id: produto.id || null,
+            id: produto.styleID || null,
             shoeName: produto.shoeName,
             brand: produto.brand || 'Marca desconhecida',
             price: produto.retailPrice || 0,

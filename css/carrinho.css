@@ -22,7 +22,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--background);
   color: var(--text);
-  padding: 2rem 1rem;
+
 }
 
 h1 {
@@ -119,6 +119,7 @@ header {
 /* Container de produtos */
 #carrinho-container {
   max-width: 900px;
+  padding-bottom: 30px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;

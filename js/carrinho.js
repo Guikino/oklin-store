@@ -1,6 +1,4 @@
 import axios from "https://cdn.jsdelivr.net/npm/axios@1.6.7/+esm";
-
-
 const userId = localStorage.getItem("userId")
 
 async function dataUser(){

@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carrinho</title>
-  <link rel="stylesheet" href="../css/carrinho.css">
-  <link rel="stylesheet" href="../css/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carrinho - OKLINstore</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="../css/carrinho.css" />
+  
+
+</head>
+
 <body>
-   <header class="header">
+  <!-- Header -->
+ <header class="header">
     <div class="header__container">
         <a href="./index.html" class="header__logo">OKLIN<span>store</span></a>
 
@@ -48,9 +54,27 @@
         </nav>
     </div>
 </header>
-  
 
-    <footer style="position: absolute; bottom: 0;">
+  <!-- Conteúdo principal -->
+  <main style="margin-top: 120px;">
+    <h1>Seu Carrinho 🛒</h1>
+
+    <div class="carrinho-wrapper">
+      <!-- Coluna Esquerda: Produtos -->
+      <div class="carrinho-esquerda">
+        <button id="clearCart" class="clear-cart-btn">Esvaziar Carrinho 🗑️</button>
+        <div id="carrinho-container"></div>
+      </div>
+
+      <!-- Coluna Direita: Resumo -->
+      <div class="carrinho-direita">
+        <p id="total" style="display: none;"></p>
+        <button id="finalizarCompra" class="finalizar-compra-btn" style="display: none;">Finalizar Compra ✅</button>
+      </div>
+    </div>
+  </main>
+
+   <footer>
     <p>© 2025 Oklin Store — Todos os direitos reservados</p>
     <ul class="footer-links">
       <li><a href="#">Política de Privacidade</a></li>
@@ -64,20 +88,69 @@
     </div>
   </footer>
 
+
+<script type="module" src="../js/carrinho.js"></script>
+<script src="../js/itens-carrinho.js"></script>
+
   <script>
+    function carregarCarrinho() {
+      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      const container = document.getElementById('carrinho-container');
+      const totalContainer = document.getElementById('total');
+      const finalizarBtn = document.getElementById('finalizarCompra');
+      const footer = document.querySelector('footer');
+
+
+      if (carrinho.length === 0) {
+        container.innerHTML = '<p class="empty-msg">Seu carrinho está vazio 😢</p>';
+        totalContainer.style.display = 'none';
+        finalizarBtn.style.display = 'none';
+        footer.style.position = "absolute";
+        footer.style.bottom = "0";
+        
+        return;
+      }
+
+      let total = 0;
+      container.innerHTML = '';
+
+      carrinho.forEach(produto => {
+        total += produto.price;
+
+        const item = document.createElement('div');
+        item.classList.add('item-carrinho');
+        item.innerHTML = `
+          <img src="${produto.thumbnail}" alt="${produto.shoeName}">
+          <div class="info-produto">
+            <h3>${produto.shoeName}</h3>
+            <p>${produto.brand}</p>
+            <p><strong>Preço:</strong> R$${produto.price.toFixed(2)}</p>
+            <p>${produto.description}</p>
+          </div>
+        `;
+        container.appendChild(item);
+      });
+
+      totalContainer.textContent = `Total: R$${total.toFixed(2)}`;
+      totalContainer.style.display = 'block';
+      finalizarBtn.style.display = 'block';
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.querySelector('.header__menu-toggle');
-    const nav = document.querySelector('.header__nav');
+      carregarCarrinho();
 
-    menuToggle.addEventListener('click', () => {
-        nav.classList.toggle('active');
+      document.getElementById('clearCart').addEventListener('click', () => {
+        localStorage.removeItem('carrinho');
+        carregarCarrinho();
+      });
+
+      document.getElementById('finalizarCompra').addEventListener('click', () => {
+        alert('Compra finalizada com sucesso! 🎉');
+        localStorage.removeItem('carrinho');
+        carregarCarrinho();
+      });
     });
-});
   </script>
-
-
-  <script type="module" src="../js/carrinho.js"></script>
-
-  
 </body>
+
 </html>
