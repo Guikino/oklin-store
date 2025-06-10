@@ -4,27 +4,80 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Carrinho</title>
-  <link rel="stylesheet" href="carrinho.css">
-  <link rel="stylesheet" href="js/script.js">
+  <link rel="stylesheet" href="../css/carrinho.css">
+  <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
- <header>
-    <div class="header-container">
-      <div class="logo">OKLIN<span>store</span></div>
- </header>
 <body>
-  <div class="container">
-    <div class="box">
-      <h1>CARRINHO</h1>
-      <div class="produtos">
-    <div class="produto">
-      <h2>Produto 1</h2>
-      <p>R$ 50,00</p>
-      <button onclick="adicionarAoCarrinho('Produto 1', 50)">Adicionar</button>
+   <header class="header">
+    <div class="header__container">
+        <a href="./index.html" class="header__logo">OKLIN<span>store</span></a>
+
+        <button class="header__menu-toggle" aria-label="Abrir menu de navegação">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <nav class="header__nav">
+            <ul class="header__nav-links">
+                <li><a href="./index.html" class="header__link">Home</a></li>
+                <li><a href="./outlet.html" class="header__link">Outlet</a></li>
+            </ul>
+
+            <ul class="header__icons">
+                <li>
+                    <form class="header__search-form" role="search">
+                        <input class="header__search-input" type="search" placeholder="Pesquisar..." aria-label="Campo de pesquisa">
+                        <button class="header__search-button" type="submit" aria-label="Buscar">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </li>
+                <li style="width: 30px; height: 30px;">
+                    <a href="./logar.html" id="login-link"  aria-label="Acessar perfil de usuário">
+                        <img style="width: 100%; height: 100%; border: 1px solid #477bdc;
+                         border-radius: 50%; object-fit: cover;" src="../img/icons/sem-perfil.webp" id="avatar" alt="foto de perfil do usuário">
+                    </a>
+                </li>
+                <li>
+                    <a href="./carrinho.html" class="header__icon-link header__cart-link" aria-label="Ver carrinho de compras">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="header__cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
-    <div class="produto">
-      <h2>Produto 2</h2>
-      <p>R$ 75,00</p>
-      <button onclick="adicionarAoCarrinho('Produto 2', 75)">Adicionar</button>
+</header>
+  
+
+    <footer style="position: absolute; bottom: 0;">
+    <p>© 2025 Oklin Store — Todos os direitos reservados</p>
+    <ul class="footer-links">
+      <li><a href="#">Política de Privacidade</a></li>
+      <li><a href="#">Termos de Serviço</a></li>
+      <li><a href="#">Contato</a></li>
+    </ul>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
     </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.querySelector('.header__menu-toggle');
+    const nav = document.querySelector('.header__nav');
+
+    menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+    });
+});
+  </script>
+
+
+  <script type="module" src="../js/carrinho.js"></script>
+
+  
 </body>
 </html>
