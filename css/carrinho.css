@@ -269,3 +269,87 @@ header {
 .finalizar-compra-btn:hover {
   background-color: var(--primary-hover);
 }
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* fundo escurecido */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #000; /* preto como primária */
+  padding: 2rem;
+  border-radius: 10px;
+  width: 320px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+.modal-content h2 {
+  margin-bottom: 1rem;
+  color: #4a90e2; /* azul como secundária */
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  color: #4a90e2;
+}
+
+.modal-content input {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #4a90e2;
+  border-radius: 5px;
+  background: #111;
+  color: #fff;
+}
+
+.modal-content input::placeholder {
+  color: #aaa;
+}
+
+.botoes-modal {
+  display: flex;
+  justify-content: space-between;
+}
+
+.botoes-modal button {
+  padding: 0.6rem 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  flex: 1;
+  margin: 0 0.25rem;
+  transition: background 0.3s;
+}
+
+#cancelarPagamento {
+  background-color: #333;
+  color: white;
+}
+
+#cancelarPagamento:hover {
+  background-color: #555;
+}
+
+#confirmarPagamento {
+  background-color: #4a90e2;
+  color: black;
+}
+
+#confirmarPagamento:hover {
+  background-color: #357ABD;
+}

@@ -88,3 +88,75 @@ main .container-principal{
     color: rgb(113, 113, 113);
     font-size: 13px;
 }
+
+/* modal.css */
+
+.modal-cartao {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-conteudo {
+  background-color: #111;
+  border: 2px solid #477bdc;
+  border-radius: 12px;
+  padding: 24px;
+  color: white;
+  width: 300px;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  animation: aparecer 0.3s ease-out;
+}
+
+.modal-conteudo h2 {
+  color: #477bdc;
+  margin-bottom: 16px;
+}
+
+.modal-conteudo button {
+  margin-top: 20px;
+  background-color: #477bdc;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.modal-conteudo button:hover {
+  background-color: #355db4;
+}
+
+.botao-modal {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #111;
+  border: 2px solid #477bdc;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.botao-modal:hover {
+  background-color: #222;
+}
+
+@keyframes aparecer {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

@@ -11,6 +11,56 @@
   </style>
 </head>
 <body>
+    <!-- Modal -->
+       <div id="modal" style="
+    position: fixed;
+    
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2000;
+    
+    display: flex;
+  
+    justify-content: center;
+    
+
+  ">
+    <div id="modalContent" style="
+    
+      margin-top: 60px;
+      background-color: rgb(0, 191, 0);
+      color: white;
+      padding: 20px 30px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(56, 56, 56, 0.4);
+      opacity: 1;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      transform: translateY(0);
+    ">
+      <p style="margin: 0;">item adicionado ao carrinho!</p>
+    </div>
+  </div>
+
+  <script>
+    
+    setTimeout(() => {
+      const modal = document.getElementById('modal');
+      const modalContent = document.getElementById('modalContent');
+
+      // Aplica transição de saída
+      modalContent.style.opacity = '0';
+      modalContent.style.transform = 'translateY(-20px)';
+
+      setTimeout(() => {
+        modal.style.display = 'none';
+      }, 500);
+    }, 3000); 
+  </script>
+
+
+
   <!-- Header -->
   <header class="header">
     <div class="header__container">

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -82,7 +82,9 @@
                     <span>Dados que representam a conta na OklinStore</span>
                     </div>
                 </div>
-                <div class="cards">
+                
+
+                <div class="cards" id="abrir-modal">
                     <div> <span class="fa fa-credit-card fa-xl"></span></div>
                     <div class="escrita-cards">
                         <p>Cartões</p>
@@ -90,6 +92,16 @@
                     </div>
                 </div>
 
+                <!-- Modal cartao-->
+        <div id="modal-cartao" class="modal-cartao">
+        <div class="modal-conteudo">
+            <h2>Dados do Cartão</h2>
+            <p id="nome-cartao">Titular:</p>
+            <p id="numero-cartao">Número:</p>
+    <p id="validade-cartao">Validade:</p>
+    <button id="fechar-modal">Fechar</button>
+  </div>
+</div>
             </section>
         </section>
     </main>
@@ -120,5 +132,6 @@
   </script>
 
     <script type="module" src="../js/conta.js"></script>
+    <script src="../js/itens-carrinho.js"></script>
 </body>
 </html>

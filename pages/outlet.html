@@ -12,6 +12,39 @@
   <link rel="stylesheet" href="../css/outlet.css">
 </head>
 <body>
+
+   <!-- Modal -->
+       <div id="modal" style="
+    position: fixed;
+    
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2000;
+    
+    display: none;
+  
+    justify-content: center;
+    
+
+  ">
+    <div id="modalContent" style="
+    
+      margin-top: 60px;
+      background-color: rgb(0, 191, 0);
+      color: white;
+      padding: 20px 30px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(56, 56, 56, 0.4);
+      opacity: 1;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      transform: translateY(0);
+    ">
+      <p style="margin: 0;">item adicionado ao carrinho!</p>
+    </div>
+  </div>
+
   <!-- Header -->
  <header class="header">
     <div class="header__container">
@@ -55,10 +88,24 @@
   
 
   <!-- Seção de Catálogo -->
-  <section id="produtos" class="section1">
-    <h2>Produtos</h2>
-    <div id="lista-produtos" class="prod-container"></div>
-  </section>
+  <main>
+    <section id="produtos" class="section">
+      <h2>Populares</h2>
+      <div class="prod-container lista-produtos"></div>
+    </section>
+    <section class="section">
+      <h2>Jordan</h2>
+      <div class="prod-container lista-produtos2"></div>
+    </section>
+    <section class="section">
+      <h2>Adidas</h2>
+      <div class="prod-container lista-produtos3"></div>
+    </section>
+    <section class="section">
+      <h2>Puma</h2>
+      <div class="prod-container lista-produtos4"></div>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer>
@@ -85,7 +132,10 @@
         nav.classList.toggle('active');
     });
 });
+
+  
   </script>
   <script type="module" src="../js/outlet.js"></script>
+  
 </body>
 </html>

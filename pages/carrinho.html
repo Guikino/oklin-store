@@ -89,68 +89,165 @@
   </footer>
 
 
+  <!-- Modal de Pagamento -->
+<div id="modal-pagamento" class="modal hidden">
+  <div class="modal-content">
+    <h2>Pagar no cartão</h2>
+
+    <label>Nome no Cartão</label>
+    <input type="text" id="nome-cartao" placeholder="Nome impresso no cartão" required>
+
+    <label>Número do Cartão</label>
+    <input type="text" id="numero-cartao" placeholder="0000 0000 0000 0000" maxlength="19" required>
+
+    <label>Validade</label>
+    <input type="text" id="validade-cartao" placeholder="MM/AA" maxlength="5" required>
+
+    <label>CVV</label>
+    <input type="text" id="cvv-cartao" placeholder="123" maxlength="3" required>
+
+    <p id="valor-total">valor total: R$: </p>
+
+    <div class="botoes-modal">
+      <button id="cancelarPagamento">Cancelar</button>
+      <button id="confirmarPagamento">Confirmar</button>
+    </div>
+  </div>
+</div>
+
+
+
 <script type="module" src="../js/carrinho.js"></script>
 <script src="../js/itens-carrinho.js"></script>
 
   <script>
-    function carregarCarrinho() {
-      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-      const container = document.getElementById('carrinho-container');
-      const totalContainer = document.getElementById('total');
-      const finalizarBtn = document.getElementById('finalizarCompra');
-      const footer = document.querySelector('footer');
+  function carregarCarrinho() {
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    const container = document.getElementById('carrinho-container');
+    const totalContainer = document.getElementById('total');
+    const finalizarBtn = document.getElementById('finalizarCompra');
+    const footer = document.querySelector('footer');
 
-
-      if (carrinho.length === 0) {
-        container.innerHTML = '<p class="empty-msg">Seu carrinho está vazio 😢</p>';
-        totalContainer.style.display = 'none';
-        finalizarBtn.style.display = 'none';
-        footer.style.position = "absolute";
-        footer.style.bottom = "0";
-        
-        return;
-      }
-
-      let total = 0;
-      container.innerHTML = '';
-
-      carrinho.forEach(produto => {
-        total += produto.price;
-
-        const item = document.createElement('div');
-        item.classList.add('item-carrinho');
-        item.innerHTML = `
-          <img src="${produto.thumbnail}" alt="${produto.shoeName}">
-          <div class="info-produto">
-            <h3>${produto.shoeName}</h3>
-            <p>${produto.brand}</p>
-            <p><strong>Preço:</strong> R$${produto.price.toFixed(2)}</p>
-            <p>${produto.description}</p>
-          </div>
-        `;
-        container.appendChild(item);
-      });
-
-      totalContainer.textContent = `Total: R$${total.toFixed(2)}`;
-      totalContainer.style.display = 'block';
-      finalizarBtn.style.display = 'block';
+    if (carrinho.length === 0) {
+      container.innerHTML = '<p class="empty-msg">Seu carrinho está vazio 😢</p>';
+      totalContainer.style.display = 'none';
+      finalizarBtn.style.display = 'none';
+      footer.style.position = "absolute";
+      footer.style.bottom = "0";
+      return;
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      carregarCarrinho();
+    let total = 0;
+    container.innerHTML = '';
 
-      document.getElementById('clearCart').addEventListener('click', () => {
-        localStorage.removeItem('carrinho');
-        carregarCarrinho();
-      });
-
-      document.getElementById('finalizarCompra').addEventListener('click', () => {
-        alert('Compra finalizada com sucesso! 🎉');
-        localStorage.removeItem('carrinho');
-        carregarCarrinho();
-      });
+    carrinho.forEach(produto => {
+      total += produto.price;
+      const item = document.createElement('div');
+      item.classList.add('item-carrinho');
+      item.innerHTML = `
+        <img src="${produto.thumbnail}" alt="${produto.shoeName}">
+        <div class="info-produto">
+          <h3>${produto.shoeName}</h3>
+          <p>${produto.brand}</p>
+          <p><strong>Preço:</strong> R$${produto.price.toFixed(2)}</p>
+          <p>${typeof produto.description === 'string' ? produto.description.slice(0, 200) : 'Descrição não disponível'}...</p>
+        </div>
+      `;
+      container.appendChild(item);
     });
-  </script>
+
+    totalContainer.textContent = `Total: R$${total.toFixed(2)}`;
+    totalContainer.style.display = 'block';
+    finalizarBtn.style.display = 'block';
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    carregarCarrinho();
+
+    document.getElementById('clearCart').addEventListener('click', () => {
+      localStorage.removeItem('carrinho');
+      carregarCarrinho();
+    });
+
+    document.getElementById('finalizarCompra').addEventListener('click', () => {
+      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      let total = 0;
+      carrinho.forEach(produto => {
+        total += produto.price;
+      });
+
+      const valorTotal = document.getElementById("valor-total");
+      valorTotal.textContent = `Valor total: R$ ${total.toFixed(2)}`
+      ;
+      if(localStorage.getItem('cartao') == null){
+      document.getElementById('modal-pagamento').classList.remove('hidden');
+      } else{
+        alert("compra concluida com sucesso")
+        localStorage.removeItem('carrinho');
+        carregarCarrinho();
+      }
+    });
+
+    
+
+    document.getElementById('cancelarPagamento').addEventListener('click', () => {
+      document.getElementById('modal-pagamento').classList.add('hidden');
+    });
+
+    document.getElementById('confirmarPagamento').addEventListener('click', () => {
+      const nome = document.getElementById('nome-cartao').value.trim();
+      const numero = document.getElementById('numero-cartao').value.trim();
+      const validade = document.getElementById('validade-cartao').value.trim();
+      const cvv = document.getElementById('cvv-cartao').value.trim();
+
+
+
+     document.getElementById('confirmarPagamento').addEventListener('click', () => {
+  const nome = document.getElementById('nome-cartao').value;
+  const numero = document.getElementById('numero-cartao').value.replace(/\s/g, '');
+  const validade = document.getElementById('validade-cartao').value.trim();
+  const cvv = document.getElementById('cvv-cartao').value.trim();
+
+  switch (true) {
+    case (!nome || !numero || !validade || !cvv):
+      alert('Preencha todos os campos do cartão!');
+      return;
+
+    case (numero.length !== 16 || isNaN(numero)):
+      alert('Preencha o número do cartão corretamente.');
+      return;
+
+    case (validade.length !== 5 || !validade.includes('/')):
+      alert('Preencha a validade do cartão corretamente (formato MM/AA).');
+      return;
+
+    case (cvv.length !== 3 || isNaN(cvv)):
+      alert('Preencha o CVV do cartão corretamente.');
+      return;
+
+    default:
+      const dadosCartao = {
+        nome,
+        numero,
+        validade,
+        cvv
+      };
+      localStorage.setItem('cartao', JSON.stringify(dadosCartao));
+      alert('Compra realizada com sucesso! 🎉');
+      localStorage.removeItem('carrinho');
+      carregarCarrinho();
+      document.getElementById('modal-pagamento').classList.add('hidden');
+      break;
+  }
+});
+
+       
+
+      
+      
+    });
+  });
+</script>
 </body>
 
 </html>

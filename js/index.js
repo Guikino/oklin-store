@@ -51,7 +51,7 @@ import axios from "https://cdn.jsdelivr.net/npm/axios@1.6.7/+esm";
       <div>
         <p>${modelo} - <span>${tenis.colorway}</span></p>
         <Strong>$${tenis.retailPrice},00</span></Strong>
-        <button><a href="">Comprar agora</a></button>
+        <button><a href="../pages/outlet.html">Ver mais</a></button>
       </div>
     `;
     return card;
@@ -102,17 +102,15 @@ import axios from "https://cdn.jsdelivr.net/npm/axios@1.6.7/+esm";
 
 
 
-  // Carregamento inicial (Seu código original, mantido)
+
   carregarTenisDestaque();
 
-  // Eventos dos botões (Atualizados para usar a nova lógica)
+ 
   nextBtn.addEventListener('click', () => {
     moveNext();
     resetAutoScroll();
   });
-
   prevBtn.addEventListener('click', () => {
-    // A lógica original de voltar já funciona bem.
     track.scrollBy({ left: -320, behavior: 'smooth' });
     resetAutoScroll();
   });
