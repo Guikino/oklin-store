@@ -6,7 +6,7 @@ Bem-vindo ao projeto OklinStore! Este repositório contém o código-fonte para 
 
 ## Sobre o Projeto
 
-Este projeto visa fornecer uma plataforma online para a venda de roupas, com uma interface de usuário amigável e uma API robusta para gerenciar produtos, pedidos e clientes.
+Este projeto visa fornecer uma plataforma online para a venda de tenis, com uma interface de usuário amigável e uma API robusta para gerenciar produtos, pedidos e clientes.
 
 ## Tecnologias Utilizadas
 
