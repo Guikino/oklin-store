@@ -26,11 +26,11 @@ Este projeto visa fornecer uma plataforma online para a venda de tenis, com uma 
 ```bash
 # Clone o repositório
 git clone <https://github.com/Guikino/oklin-store.git>
-cd loja-de-roupas # ou o caminho para a pasta do frontend
+cd loja-de-roupas
 # Instale as dependências
-npm install # ou yarn install
+npm install
 # Inicie o servidor de desenvolvimento
-npm start # ou yarn start
+npm start 
 ```
 
 ### API (Backend)
