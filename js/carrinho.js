@@ -5,9 +5,8 @@ async function dataUser(){
     let avatarHeader = document.querySelector("#avatar")  
     const loginLink = document.querySelector("#login-link")
     if(userId){
-        const dataUserAvatar = await axios.get(`http://localhost:8081/users/${userId}`)
-        console.log(dataUserAvatar.data.id)
-        avatarHeader.src = dataUserAvatar.data.avatar
+        const {data} = await axios.get(`http://localhost:8081/users/${userId}`)
+        avatarHeader.src = data.avatar
         loginLink.href = "../pages/conta.html"
     }
   }

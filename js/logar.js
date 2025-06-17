@@ -10,7 +10,6 @@ async function login() {
       email: email.value,
       password: password.value,
     });
-    console.log("Usuário autenticado:", verif.data);
     localStorage.setItem("userId", verif.data.id)
     window.location.href = "../pages/index.html";
     

@@ -1,24 +1,14 @@
-// Usamos import em vez de require
+
 import express, { Application, Request, Response, NextFunction } from 'express';
 import cors from 'cors';
-// Importamos o módulo. O nome 'SneaksAPIModule' é usado para o que é efetivamente importado.
 import SneaksAPIModule = require('sneaks-api');
-console.log('Conteúdo importado de "sneaks-api":', SneaksAPIModule); // <--- ADICIONE ESTE LOG
-
+console.log('Conteúdo importado de "sneaks-api":', SneaksAPIModule);
 import SneakerService, { ISneaksAPI } from './service/service';
 import SneakerController from './controller/controller';
 import { createSneakerRoutes } from './routes/routes';
 
 
-// --- INJEÇÃO DE DEPENDÊNCIA (com tipos) ---
 
-// Verifique o output do console.log acima.
-// Se 'SneaksAPIModule' for diretamente a função/classe construtora, a linha abaixo deve funcionar.
-// Se o log mostrar que o construtor está dentro de uma propriedade (ex: SneaksAPIModule.default ou SneaksAPIModule.SneaksAPI),
-// você precisará ajustar a instanciação, por exemplo:
-// const sneaksApiInstance: ISneaksAPI = new SneaksAPIModule.default(); 
-// ou
-// const sneaksApiInstance: ISneaksAPI = new SneaksAPIModule.SneaksAPI();
 
 const sneaksApiInstance: ISneaksAPI = new SneaksAPIModule();
 

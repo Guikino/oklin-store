@@ -11,7 +11,6 @@ async function dataUser(){
     const loginLink = document.querySelector("#login-link")
     if(userId){
         const dataUserAvatar = await axios.get(`http://localhost:8081/users/${userId}`)
-        console.log(dataUserAvatar.data.id)
         avatarHeader.src = dataUserAvatar.data.avatar
         avatarMain.src = dataUserAvatar.data.avatar
         loginLink.href = "../pages/conta.html"

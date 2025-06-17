@@ -9,6 +9,6 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["**/*.ts"],
+  "include": ["**/*.ts", "controller/controller.js", "service/service.js", "app.js", "routes/routes.js"],
   "exclude": ["node_modules", "dist"]
 }

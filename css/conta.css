@@ -21,16 +21,20 @@ main .container-principal{
     padding-top: 90px;
     padding-bottom: 20px;
      width: 80%;
+     align-items: center;
       background-color: var(--surface-light);
       border: 2px solid var(--border);
       border-radius: 5px;
        margin: auto;
 }
 .user-info{
-    margin-left: 7px;
+    display: flex;
+    gap: 30px;
+}
+.user-info-dados{
+  gap: 10px;
     display: flex;
     align-items: center;
-    gap: 10px;
     
 }
 .avatar-container{
@@ -61,19 +65,17 @@ main .container-principal{
     flex-wrap: wrap;
     align-items: center;
     gap: 10px;
-    
     color: black;
 }
 
 .cards{
     padding: 10px;
-    display: flex;
     flex-direction: column;
     gap: 10px;
     border-radius: 8px;
     margin: auto;
-    width: 350px;
-    height: 150px;
+    width: 200px;
+    height: 100px;
    background-color: var(--text);
 }
 .cards:hover{

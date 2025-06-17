@@ -13,9 +13,7 @@
     <div class="header__container">
         <a href="./index.html" class="header__logo">OKLIN<span>store</span></a>
 
-        <button class="header__menu-toggle" aria-label="Abrir menu de navegação">
-            <i class="fas fa-bars"></i>
-        </button>
+       
 
         <nav class="header__nav">
             <ul class="header__nav-links">
@@ -24,14 +22,7 @@
             </ul>
 
             <ul class="header__icons">
-                <li>
-                    <form class="header__search-form" role="search">
-                        <input class="header__search-input" type="search" placeholder="Pesquisar..." aria-label="Campo de pesquisa">
-                        <button class="header__search-button" type="submit" aria-label="Buscar">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </form>
-                </li>
+              
                 <li style="width: 30px; height: 30px;">
                     <a href="./logar.html" id="login-link"  aria-label="Acessar perfil de usuário">
                         <img style="width: 100%; height: 100%; border: 1px solid #477bdc;
@@ -54,36 +45,20 @@
     <main class=".page-content ">
         <section class="container-principal">
             <section class="user-info">
-                <div class="avatar-container">
-                    <img src="/" id="avatar-main" alt="foto do usuário">
-                </div>
-                <div>
-                    <div>
-                        <span id="username"></span>
+                <div class="user-info-dados">
+                    <div class="avatar-container">
+                        <img src="/" id="avatar-main" alt="foto do usuário">
                     </div>
                     <div>
-                        <span id="email""></span>
+                        <div>
+                            <span id="username"></span>
+                        </div>
+                        <div>
+                            <span id="email""></span>
+                        </div>
                     </div>
                 </div>
-            </section>
-            <section class="cards-container">
-                <div class="cards ">
-                    <div> <span class="fa fa-id-card fa-xl"></span></div>
-                    <div class="escrita-cards">
-                        <p>Informações pessoais</p>
-                    <span>Informações do seu documento de identidade e nome de preferência</span>
-                    </div>
-                </div>
-
-                <div class="cards">
-                    <div> <span class="fa fa-user fa-xl"></span></div>
-                    <div class="escrita-cards">
-                        <p>Dados da sua conta</p>
-                    <span>Dados que representam a conta na OklinStore</span>
-                    </div>
-                </div>
-                
-
+                <div class="cards-container">
                 <div class="cards" id="abrir-modal">
                     <div> <span class="fa fa-credit-card fa-xl"></span></div>
                     <div class="escrita-cards">
@@ -102,7 +77,11 @@
     <button id="fechar-modal">Fechar</button>
   </div>
 </div>
+            </div>
+
             </section>
+            
+            
         </section>
     </main>
 

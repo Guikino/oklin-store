@@ -14,11 +14,10 @@ async function login() {
       username: username.value,
       avatar: avatar.value,
     });
-    console.log("Usuário Criado:", verif.data);
     window.location.href = "../pages/logar.html";
   } catch (error) {
     if (error.response) {
-      alert("Erro: " + (error.response.data.message));
+      alert("Erro: " + (error.response.data.error));
     } else {
       alert("Erro de conexão com o servidor");
     }

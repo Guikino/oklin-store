@@ -17,10 +17,8 @@ import axios from "https://cdn.jsdelivr.net/npm/axios@1.6.7/+esm";
     const avatar = document.querySelector("#avatar")  
     const loginLink = document.querySelector("#login-link")
     if(userId){
-        const dataUserAvatar = await axios.get(`http://localhost:8081/users/${userId}`)
-        
-        console.log(dataUserAvatar.data.id)
-        avatar.src = dataUserAvatar.data.avatar
+        const {data} = await axios.get(`http://localhost:8081/users/${userId}`)
+        avatar.src = data.avatar
         loginLink.href = "../pages/conta.html"
     }
   }
@@ -30,13 +28,12 @@ import axios from "https://cdn.jsdelivr.net/npm/axios@1.6.7/+esm";
 
 
 
-  // Carousel Logic (Seu código original com a correção aplicada)
+
   const track = document.querySelector('.carousel-track');
   const nextBtn = document.querySelector('.carousel-btn.next');
   const prevBtn = document.querySelector('.carousel-btn.prev');
-  let autoScroll; // Mantido para o controle do intervalo
+  let autoScroll;
 
-  // Função para criar card (Sua função original, mantida)
   function criarCard(tenis) {
     const card = document.createElement('div');
     card.className = 'highlight-card';
@@ -50,7 +47,7 @@ import axios from "https://cdn.jsdelivr.net/npm/axios@1.6.7/+esm";
       
       <div>
         <p>${modelo} - <span>${tenis.colorway}</span></p>
-        <Strong>$${tenis.retailPrice},00</span></Strong>
+        <Strong>R$${tenis.retailPrice},00</span></Strong>
         <button><a href="../pages/outlet.html">Ver mais</a></button>
       </div>
     `;
