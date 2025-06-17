@@ -13,13 +13,13 @@ Este projeto visa fornecer uma plataforma online para a venda de roupas, com uma
 *   **Frontend:**  HTML/CSS/JS puro, axios js
 *   **Backend:**  Node com Express, TS, sneaks-api 
 *   
-*   **Outras Ferramentas:** Docker, Git
+*   **Outras Ferramentas:**  Git
 
 ## Como Executar o Projeto
 
 ### Pré-requisitos
 
-*    Node.js v18.x, Docker, TS
+*    Node.js v18.x, TS
 
 ### Website (Frontend)
 
@@ -37,11 +37,11 @@ npm start # ou yarn start
 
 ```bash
 # Navegue até a pasta da API
-cd api # ou o caminho para a pasta da api
+cd api
 # Instale as dependências
-# (Comandos específicos para a sua stack de backend)
+npm install
 # Inicie o servidor
-# (Comandos específicos para a sua stack de backend)
+npm run dev
 ```
 
 ## Endpoints da API (Exemplos)
